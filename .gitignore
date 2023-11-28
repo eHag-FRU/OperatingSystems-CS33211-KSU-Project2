@@ -16,4 +16,5 @@
 
 
 
-
+# Remove the compiled output
+out/banker
