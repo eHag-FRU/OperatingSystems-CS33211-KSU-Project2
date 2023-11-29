@@ -53,73 +53,43 @@ void resourceTableRead(std::string fileName, ProcessResources* arrayOfProcesses)
     //Now we need to pull in the values from the file
 
     int process;
-    int currentResource;
     int currentProcessResourceIndex = 0;
-
-    int count = 0;
-
     //Pull in input while not at EOF
     //Once per line!!!!
     do {
+        char currentPosition = resourceTable.get();
 
-        ++count;
+        //First is the process
+        process = atoi(&currentPosition);
 
-        //Grabs char
-        char currentChar = resourceTable.get();
-    
-        //put in the process index
-        //changes to index
-        process = atoi(&currentChar);
 
-        std::cout << "| " << process << "    |";
-    
-
-        //now grab each of the three for the allocated
+        //Next to pull in is the ALLOCATION for each
         for (int i = 0; i < RESOURCE_CATEGORY_COUNT; ++i) {
-            currentChar = resourceTable.get();
-            std::cout << currentChar << ", ";
-            //sticks the available in to the current position
-            (arrayOfProcesses[process]).available[atoi(&currentChar)];
-        }
+            currentPosition = resourceTable.get();
 
-        std::cout << "    |";
-
-
-        
-
-        //now grab each of the three for the max
-         for (int i = 0; i < RESOURCE_CATEGORY_COUNT; ++i) {
-            currentChar = resourceTable.get();
-
-            std::cout << currentChar << ", ";
-
-            //sticks the available in to the current position
-            (arrayOfProcesses[process]).maxAllocated[atoi(&currentChar)];
+            arrayOfProcesses[process].allocated[i] = atoi(&currentPosition);
         }
 
 
-        //check if available is in the table
-        if (resourceTable.peek() != ';') {
-            //grab the three available
-            for(int i = 0; i < RESOURCE_CATEGORY_COUNT; ++i) {
-                currentChar = resourceTable.get();
+        //Next to pull in is the MAX for each
+        for (int i = 0; i < RESOURCE_CATEGORY_COUNT; ++i) {
+            currentPosition = resourceTable.get();
 
-                std::cout << currentChar << ", ";
-
-                //sticks the available in to the current position
-                (arrayOfProcesses[process]).available[atoi(&currentChar)];
-            }
+            arrayOfProcesses[process].maxAllocated[i] = atoi(&currentPosition);
         }
 
-        
+
         //Pull the end of the line (;)
-        currentChar = resourceTable.get();
-        currentChar = resourceTable.get();
+        currentPosition = resourceTable.get();
+        currentPosition = resourceTable.get();
 
 
-    } while (!resourceTable.eof());
+    } while (!resourceTable.eof() && resourceTable.peek() != '*');
 
       
+
+    //Now at the available
+    
 
 
 

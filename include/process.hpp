@@ -23,15 +23,6 @@
         int maxAllocated[3] = {0,0,0};
 
 
-
-        //Holds the avaible amount of each resource
-        //Allocates to 0's automatically
-        //available[0] = A's resource count
-        //available[1] = B's resource count
-        //available[2] = C's resource count
-        int available[3] = {0,0,0};
-
-
     };
 
 
