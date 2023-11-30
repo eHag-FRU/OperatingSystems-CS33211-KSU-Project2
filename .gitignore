@@ -124,3 +124,5 @@ Doc/latex/refman.tex
 Doc/latex/refman.toc
 Doc/latex/structProcessResources.tex
 Doc/latex/tabu_doxygen.sty
+out/util.o
+out/banker.o

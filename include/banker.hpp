@@ -10,13 +10,11 @@
 #define BANKER_HPP
 
 
-
-
     //Global constants for max of each resource
     #define A 10
     #define B 5
     #define C 7
-
+    
     
 
 #endif
