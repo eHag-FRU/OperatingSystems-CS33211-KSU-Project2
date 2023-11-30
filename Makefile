@@ -21,8 +21,7 @@ msg:
 
 banker: ./src/banker.cpp
 	g++ "./src/banker.cpp" -o ./out/banker
-
-
+	
 run: ./src
 	
 	make banker
