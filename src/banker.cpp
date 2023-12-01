@@ -20,31 +20,17 @@ int main(int argc, char* argv[]) {
     //Resources: 0 = A, 1 = B, 2 = C
     //Processes: 0 = P0, 1 = P1, 2 = P2, etc.
 
-    /*REMOVE VALUES WHEN FINISHED WITH ALGO!*/
-    int allocated[PROCESSES][RESOURCE_CATEGORIES] = {
-        {0,1,0},
-        {2,0,0},
-        {3,0,2},
-        {2,1,1},
-        {0,0,2}
-    };
+    int allocated[PROCESSES][RESOURCE_CATEGORIES];
 
+    int max[PROCESSES][RESOURCE_CATEGORIES];
 
-    int max[PROCESSES][RESOURCE_CATEGORIES] = {
-        {7,5,3},
-        {3,2,2},
-        {9,0,2},
-        {2,2,2},
-        {4,3,3}
-    };
-
-    int available[RESOURCE_CATEGORIES] {
-        3,3,2
-    };
+    int available[RESOURCE_CATEGORIES];
 
 
     //Call to read in from the table
-    //processResourceTable(resourceTable, allocated, max, available);
+    processResourceTable(resourceTable, allocated, max, available);
+
+
 
     //Finish holds which processes are finished by a bit (1/0), indicies are the process numbers
     //Anwser holds the process numbers that are a safe path if it exists
@@ -84,6 +70,7 @@ int main(int argc, char* argv[]) {
                     }
                 }
 
+                //Delegation is finished, marked as finished and resources as available
                 if (flag == 0) {
                     anwser[index++] = currentProcess;
 

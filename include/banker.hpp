@@ -9,12 +9,10 @@
 #ifndef BANKER_HPP
 #define BANKER_HPP
 
+    #include <iostream>
+    #include "../include/util.hpp"
 
-    //Global constants for max of each resource
-    #define A 10
-    #define B 5
-    #define C 7
-    
-    
+
+  int main(int argc, char* argv[]);
 
 #endif
