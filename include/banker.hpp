@@ -8,11 +8,9 @@
 
 #ifndef BANKER_HPP
 #define BANKER_HPP
-
-    #include <iostream>
     #include "../include/util.hpp"
 
-
+  
   int main(int argc, char* argv[]);
 
 #endif

@@ -13,6 +13,7 @@
 msg:
 	@echo 'Targets are: '
 	@echo ' banker'
+	@echo '	util'
 	@echo ' run'
 	@echo  ' clean'
 

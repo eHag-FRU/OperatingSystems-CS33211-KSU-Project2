@@ -1,12 +1,23 @@
-#include <iostream>
+/**
+ * @file banker.cpp
+ * @author Elliott Hager
+ * @brief The implementation of the Deadlock avoidant, system resource allocation Banker's Algorithm
+ * @date 2023-12-01
+ * 
+ */
 
 #include "../include/banker.hpp"
-#include "../include/util.hpp"
 
 
 
 
-
+/**
+   * @brief The main function for the Banker's algorithm to start execution
+   * 
+   * @param argc (int) - The number of command line arguments fed into the program
+   * @param argv (char[]) - The command line arguments fed into the program
+   * @return int - The status code of the code (0: successful execution, other - error)
+   */
 int main(int argc, char* argv[]) {
     //Check for the proper amount of arguments
     if (argc < 2) {
@@ -33,7 +44,7 @@ int main(int argc, char* argv[]) {
 
 
     //Finish holds which processes are finished by a bit (1/0), indicies are the process numbers
-    //Anwser holds the process numbers that are a safe path if it exists
+    //Answer holds the process numbers that are a safe path if it exists
     //index is the curent index in anwser
     int finished[PROCESSES], anwser[PROCESSES], index = 0;
 

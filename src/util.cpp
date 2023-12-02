@@ -1,6 +1,20 @@
+/**
+ * @file util.cpp
+ * @author Elliott Hager
+ * @brief The implementation of the File I/O and debugging functionality to read in the resource table for the Banker's Algorithm to analyze 
+ * @date 2023-12-01
+ * 
+ */
+
 #include "../include/util.hpp"
 
-
+/**
+     * @brief Print out each array and its contents, with multiple dimensions indicated (where applicable) for debugging purposes
+     * 
+     * @param allocated The 2-D array that holds the allocated resource counts for each process
+     * @param max The 2-D array that holds the maximum resource counts needed for each process
+     * @param available The 1-D array that holds the available resource counts the system has currently available
+     */
 void printTables(int allocated[][RESOURCE_CATEGORIES], int max[][RESOURCE_CATEGORIES], int* available) {
     std::cout << "FINISHED PROCESSING, HERE ARE THE RESULTS: " << std::endl << std::endl << std::endl;
 
@@ -45,6 +59,16 @@ void printTables(int allocated[][RESOURCE_CATEGORIES], int max[][RESOURCE_CATEGO
 
 
 
+
+
+ /**
+     * @brief Processes the provided file for a resource table and fills allocated, maximum, and available resource arrays for algorithm processing and operations
+     * 
+     * @param file_name  The file name of the resource table
+     * @param allocated The 2-D array that holds the allocated resource counts for each process
+     * @param max  The 2-D array that holds the maximum resource counts needed for each process
+     * @param available The 1-D array that holds the available resource counts the system has currently available
+     */
 void processResourceTable(char* file_name, int allocated[][RESOURCE_CATEGORIES], int max[][RESOURCE_CATEGORIES], int* available) {
 
     //Tracking variables for processing

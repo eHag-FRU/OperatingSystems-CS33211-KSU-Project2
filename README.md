@@ -23,8 +23,18 @@ Use the Banker's Algorithm to determine if the system is in a safe state. If the
 
 ### Implementation
 
-Each process is a structure, which stores it's max and currently used resources. All of the processes are stored in an array. The Banker's algorithm will go through ##FINISH##
+Each process is a structure, which stores it's max and currently used resources. All of the processes are stored in an array. The Banker's algorithm will go through and check for a safe path. This is where all processes get the maximum resources allocated to them, while finding a sequence that does not cause deadlock. If no safe path is found, then it is reported back that with the current resource table given to the algorithm, it is not possible for safe allocation and continuation of the processes.
 
+If there is a safe way to allocate all the resources to each process, the specific path is found, recorded, and returned as the safe route, given the current resource table given to the algorithm.
+
+
+### Resource Table Formatting
+The resource table is formatted in the following way:
+
+```
+{Process number (0-based)}; {Allocated resource numbers, separated with a comma, until the last (i.e. 1,2,3)}; {Max resource numbers, separated with a comma, until the last (i.e. 1,2,3)}; {available resources,separated with a comma, until the last (i.e. 1,2,3)};
+
+```
 
 <br><br>
 
@@ -37,6 +47,12 @@ The algorithm implementation is separate from reading in the resource table from
 The following make command will compile the banker's algorithm file for execution
 ```
     make banker
+```
+
+### Util
+The following make command will compile only the utility functions of the application
+```
+    make util
 ```
 
 ### Run:
@@ -55,7 +71,7 @@ The following make command will remove the compiled and executable program files
 <br><br>
 
 ### Run Instructions:
-To run both of the producer and consumer at the same time, for Linux and Unix systems, there are two options. 
+To compile and run the Banker's algorithm, there is a couple ways of doing so.
 
 
 #### 1.) Manually/Command
@@ -68,6 +84,10 @@ Using the ```make run``` command will compile and run the algorithm
 This is the preferred method of compilation and running the project.
 
 <br><br>
+
+
+
+
 
 ### Documentation:
 Please see the ```Doc``` folder for a PDF manual/documentation packet.
